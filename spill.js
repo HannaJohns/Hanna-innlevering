@@ -35,6 +35,8 @@ class Player {
         this.frameX = 0
         this.frameY = 0
         this.frame = 0
+        this.spriteWidth = 498
+        this.spriteHeight = 327
     }
 }
 
