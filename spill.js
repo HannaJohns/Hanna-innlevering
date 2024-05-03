@@ -1,5 +1,8 @@
 // canvas setup
 const canvas = document.getElementById("canvas1")
+if (canvas == null) {
+    console.error("CANVAS ER NULL!!!!")
+}
 const ctx = canvas.getContext('2d')
 canvas.width = 800
 canvas.height = 500
@@ -17,11 +20,23 @@ const mouse = {
     click: false
 }
 canvas.addEventListener('mousedown', function(event){
-    mouse.x = event.x
-    mouse.y = event.y
-    console.log(event)
+    mouse.x = event.x - canvasPosition.left
+    mouse.y = event.y - canvasPosition.top
+    console.log(mouse.x, mouse.y)
 })
 
 // player
+class Player {
+    constructor(){
+        this.x = canvas.width
+        this.y = canvas.height/2
+        this.radius = 50
+        this.angle = 0
+        this.frameX = 0
+        this.frameY = 0
+        this.frame = 0
+    }
+}
+
 // bubbles
 // animation loop
