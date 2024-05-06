@@ -65,6 +65,7 @@ class Player {
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
         ctx.fill()
         ctx.closePath()
+    }
 }
 const player = new Player()
 
@@ -72,3 +73,10 @@ const player = new Player()
 // bubbles
 
 // animation loop
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    player.update()
+    player.draw()
+    requestAnimationFrame(animate)
+}
+animate()
