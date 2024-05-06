@@ -71,12 +71,36 @@ const player = new Player()
 
 
 // bubbles
+const bubblesArray = []
+class Bubble {
+    constructor(){
+        this.x = Math.random() * canvas.width
+        this.y = Math.random() * canvas.height
+        this.radius = 50
+        this.speed = Math.random() * 5 + 1
+        this.distance
+    }
+    update(){
+        ctx.fillStyle = 'blue'
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+        ctx.fill()
+        ctx.closePath()
+        ctx.stroke()
+    }
+}
+
+function handleBubbles(){
+    
+}
 
 // animation loop
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     player.update()
     player.draw()
+    gameFrame++
+    console.log(gameFrame)
     requestAnimationFrame(animate)
 }
 animate()
