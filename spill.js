@@ -81,6 +81,9 @@ class Bubble {
         this.distance
     }
     update(){
+        this.y -= this.speed
+    }
+    draw(){
         ctx.fillStyle = 'blue'
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
