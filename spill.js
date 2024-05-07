@@ -75,7 +75,7 @@ const bubblesArray = []
 class Bubble {
     constructor(){
         this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
+        this.y = canvas.height + Math.random() * canvas.height
         this.radius = 50
         this.speed = Math.random() * 5 + 1
         this.distance
@@ -91,12 +91,20 @@ class Bubble {
 }
 
 function handleBubbles(){
-    
+    if (gameFrame % 50 == 0){
+        bubblesArray.push(new Bubble())
+        console.log(bubblesArray.length)
+    }
+    for (let i = 0; i < bubblesArray.length; i++){
+        bubblesArray[i].update()
+        bubblesArray[i].draw()
+    }
 }
 
 // animation loop
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    handleBubbles()
     player.update()
     player.draw()
     gameFrame++
