@@ -78,7 +78,6 @@ class Bubble {
         this.y = canvas.height + 100 + Math.random() * canvas.height
         this.radius = 50
         this.speed = Math.random() * 5 + 1
-        this.distance
     }
     update(){
         this.y -= this.speed
@@ -95,6 +94,7 @@ class Bubble {
 
 function handleBubbles(){
     if (gameFrame % 50 == 0){
+        // Hver 50ende frame så pusher vi inn en ny bobble
         bubblesArray.push(new Bubble())
         console.log(bubblesArray.length)
     }
@@ -103,12 +103,16 @@ function handleBubbles(){
         bubblesArray[i].draw()
     }
     for (let i = 0; i < bubblesArray.length; i++){
-        if (bubblesArray[i].y < 0 - bubblesArray[i].radius * 2){
-            bubblesArray.splice(i, 1)
-        }
-        if (bubblesArray[i].distance < bubblesArray[i].radius + player.radius){
+        x_dist = Math.abs(player.x - bubblesArray[i].x)
+        y_dist = Math.abs(player.y - bubblesArray[i].y)
+        dist = Math.sqrt(x_dist**2 + y_dist**2)
+        if ( dist <  (bubblesArray[i].radius + player.radius)  ){
             (console.log('kollisjon'))
         }
+        if (bubblesArray[i].y < 0 - bubblesArray[i].radius * 2){
+            bubblesArray.splice(i, 1)
+            console.log("Fjernet en boble. Nå er lengden av arrayet " + bubblesArray.length)
+        } 
     }
 }
 
@@ -120,8 +124,8 @@ function animate() {
     player.draw()
     ctx.fillStyle = 'black'
     ctx.fillText('score: ' + score, 10, 50)
-    gameFrame++
-    console.log(gameFrame)
+    gameFrame += 1
+    // console.log(gameFrame)
     requestAnimationFrame(animate)
 }
 animate()
