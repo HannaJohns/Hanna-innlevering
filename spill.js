@@ -93,7 +93,7 @@ class Bubble {
 }
 
 function handleBubbles(){
-    if (gameFrame % 50 == 0){
+    if (gameFrame % 100 == 0){
         // Hver 50ende frame så pusher vi inn en ny bobble
         bubblesArray.push(new Bubble())
         console.log(bubblesArray.length)
