@@ -78,9 +78,13 @@ class Bubble {
         this.y = canvas.height + 100 + Math.random() * canvas.height
         this.radius = 50
         this.speed = Math.random() * 5 + 1
+        this.distance
     }
     update(){
         this.y -= this.speed
+        const dx = this.x - player.x
+        const dy = this.y - player.y
+        this.distance = Math.sqrt(dx*dx + dy*dy)
     }
     draw(){
         ctx.fillStyle = 'blue'
@@ -103,11 +107,14 @@ function handleBubbles(){
         bubblesArray[i].draw()
     }
     for (let i = 0; i < bubblesArray.length; i++){
-        x_dist = Math.abs(player.x - bubblesArray[i].x)
+       /* x_dist = Math.abs(player.x - bubblesArray[i].x)
         y_dist = Math.abs(player.y - bubblesArray[i].y)
         dist = Math.sqrt(x_dist**2 + y_dist**2)
         if ( dist <  (bubblesArray[i].radius + player.radius)  ){
             (console.log('kollisjon'))
+        }*/
+        if (bubblesArray[i].distance < bubblesArray[i].radius + player.radius){
+            console.log("kollisjon")
         }
         if (bubblesArray[i].y < 0 - bubblesArray[i].radius * 2){
             bubblesArray.splice(i, 1)
