@@ -4,8 +4,8 @@ if (canvas == null) {
     console.error("CANVAS ER NULL!!!!")
 }
 const ctx = canvas.getContext('2d')
-canvas.width = 800
-canvas.height = 500
+canvas.width = 900
+canvas.height = 600
 
 let score = 0
 let gameFrame = 0
@@ -99,7 +99,7 @@ class Bubble {
 }
 
 const bubblePop1 = document.createElement('audio')
-bubblePop1.src = 'pop.ogg'
+bubblePop1.src = 'boble.mp3'
 const bubblePop2 = document.createElement('audio')
 bubblePop2.src = 'bubbles-single1.wav'
 
@@ -120,6 +120,7 @@ function handleBubbles() {
          if ( dist <  (bubblesArray[i].radius + player.radius)  ){
              (console.log('kollisjon'))
          }*/
+        let fjernBoble = false
         if (bubblesArray[i].distance < bubblesArray[i].radius + player.radius) {
             console.log("kollisjon")
             if (!bubblesArray[i].counted) {
@@ -130,12 +131,17 @@ function handleBubbles() {
                 }
                 score++
                 bubblesArray[i].counted = true
-                bubblesArray.splice(i, 1)
+                // bubblesArray.splice(i, 1)
+                fjernBoble = true
             }
-        }
+        } 
         if (bubblesArray[i].y < 0 - bubblesArray[i].radius * 2) {
+            // bubblesArray.splice(i, 1)
+            fjernBoble = true
+        }
+
+        if (fjernBoble) {
             bubblesArray.splice(i, 1)
-            console.log("Fjernet en boble. Nå er lengden av arrayet " + bubblesArray.length)
         }
     }
 }
