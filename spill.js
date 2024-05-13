@@ -30,6 +30,10 @@ canvas.addEventListener('mouseup', function () {
 })
 
 // player
+const playerLeft = new Image()
+playerLeft.src = 'fish_swim_left.png'
+const playerRight = new Image()
+playerRight.src = 'fish_swim_right.png'
 class Player {
     constructor() {
         this.x = canvas.width
@@ -65,6 +69,11 @@ class Player {
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
         ctx.fill()
         ctx.closePath()
+        // ctx.fillRect
+
+        ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight,
+            this.spriteWidth, this.spriteHeight, this.x - 60, this.y - 45, this.spriteWidth/4,
+            this.spriteHeight/4)
     }
 }
 const player = new Player()
