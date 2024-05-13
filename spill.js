@@ -57,7 +57,7 @@ class Player {
             ctx.lineWidth = 0.2
             ctx.beginPath()
             ctx.moveTo(this.x, this.y)
-            ctx.lineTo(mouse.x, mouse.y)
+            //ctx.lineTo(mouse.x, mouse.y)
             ctx.stroke()
         }
         ctx.fillStyle = 'red'
@@ -80,7 +80,7 @@ class Bubble {
         this.speed = Math.random() * 5 + 1
         this.distance
         this.counted = false
-        this.sound = Math.random() <= 0 ? 'sound1' : 'sound2'
+        this.sound = Math.random() <= 0.5 ? 'sound1' : 'sound2'
     }
     update() {
         this.y -= this.speed
@@ -125,6 +125,8 @@ function handleBubbles() {
             if (!bubblesArray[i].counted) {
                 if (bubblesArray[i].sound == 'sound1') {
                     bubblePop1.play()
+                } else {
+                    bubblePop2.play()
                 }
                 score++
                 bubblesArray[i].counted = true
