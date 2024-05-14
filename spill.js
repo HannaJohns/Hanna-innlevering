@@ -129,16 +129,15 @@ function handleBubbles() {
     if (gameFrame % 100 == 0) {
         // Hver 50ende frame så pusher vi inn en ny bobble
         bubblesArray.push(new Bubble())
-        console.log(bubblesArray.length)
     }
     for (let i = 0; i < bubblesArray.length; i++) {
         bubblesArray[i].update()
         bubblesArray[i].draw()
-    }
-    for (let i = 0; i < bubblesArray.length; i++) {
-        let fjernBoble = false
-        if (bubblesArray[i].distance < bubblesArray[i].radius + player.radius) {
-            console.log("kollisjon")
+        if (bubblesArray[i].y < 0 - bubblesArray[i].radius * 2) {
+            bubblesArray.splice(i, 1)
+            //fjernBoble = true
+            i--
+        } else if (bubblesArray[i].distance < bubblesArray[i].radius + player.radius) {
             if (!bubblesArray[i].counted) {
                 if (bubblesArray[i].sound == 'sound1') {
                     bubblePop1.play()
@@ -147,17 +146,10 @@ function handleBubbles() {
                 }
                 score++
                 bubblesArray[i].counted = true
-                // bubblesArray.splice(i, 1)
-                fjernBoble = true
+                bubblesArray.splice(i, 1)
+                i--
+                //fjernBoble = true
             }
-        }
-        if (bubblesArray[i].y < 0 - bubblesArray[i].radius * 2) {
-            // bubblesArray.splice(i, 1)
-            fjernBoble = true
-        }
-
-        if (fjernBoble) {
-            bubblesArray.splice(i, 1)
         }
     }
 }
