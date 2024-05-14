@@ -135,7 +135,6 @@ function handleBubbles() {
         bubblesArray[i].draw()
         if (bubblesArray[i].y < 0 - bubblesArray[i].radius * 2) {
             bubblesArray.splice(i, 1)
-            //fjernBoble = true
             i--
         } else if (bubblesArray[i].distance < bubblesArray[i].radius + player.radius) {
             if (!bubblesArray[i].counted) {
@@ -148,11 +147,13 @@ function handleBubbles() {
                 bubblesArray[i].counted = true
                 bubblesArray.splice(i, 1)
                 i--
-                //fjernBoble = true
             }
         }
     }
 }
+
+//Reapeating backgrounds
+
 
 // animation loop
 function animate() {
