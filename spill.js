@@ -136,12 +136,6 @@ function handleBubbles() {
         bubblesArray[i].draw()
     }
     for (let i = 0; i < bubblesArray.length; i++) {
-        /* x_dist = Math.abs(player.x - bubblesArray[i].x)
-         y_dist = Math.abs(player.y - bubblesArray[i].y)
-         dist = Math.sqrt(x_dist**2 + y_dist**2)
-         if ( dist <  (bubblesArray[i].radius + player.radius)  ){
-             (console.log('kollisjon'))
-         }*/
         let fjernBoble = false
         if (bubblesArray[i].distance < bubblesArray[i].radius + player.radius) {
             console.log("kollisjon")
@@ -181,3 +175,7 @@ function animate() {
     requestAnimationFrame(animate)
 }
 animate()
+
+window.addEventListener('resize', function(){
+    canvasPosition = canvas.getBoundingClientRect()
+})
