@@ -10,6 +10,7 @@ canvas.height = 600
 let score = 0
 let gameFrame = 0
 ctx.font = '50px Georgia'
+let gameSpeed = 1
 
 // mouse interactivity
 let canvasPosition = canvas.getBoundingClientRect()
@@ -94,6 +95,8 @@ const player = new Player()
 
 // bubbles
 const bubblesArray = []
+const bubbleImage = new Image()
+bubbleImage.src = 'bubble_pop_frame_01.png'
 class Bubble {
     constructor() {
         this.x = Math.random() * canvas.width
@@ -117,6 +120,7 @@ class Bubble {
         ctx.fill()
         ctx.closePath()
         ctx.stroke()
+        ctx.drawImage(bubbleImage, this.x, this.y, this.radius * 2.5, this.radius *2.5)
     }
 }
 
@@ -153,11 +157,30 @@ function handleBubbles() {
 }
 
 //Reapeating backgrounds
+const background = new Image()
+background.src = 'background1.png'
 
+const BG = {
+    x1: 0,
+    x2: canvas.width,
+    y: 0,
+    width: canvas.width,
+    height: canvas.height
+}
+
+function handleBackground(){
+    BG.x1-= gameSpeed
+    if (BG.x1 < -BG.width) {BG.x1 = BG.width}
+    BG.x2-= gameSpeed
+    if (BG.x2 < -BG.width) {BG.x2 = BG.width}
+    ctx.drawImage(background, BG.x1, BG.y, BG.width, BG.height)
+    ctx.drawImage(background, BG.x2, BG.y, BG.width, BG.height)
+}
 
 // animation loop
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    handleBackground()
     handleBubbles()
     player.update()
     player.draw()
