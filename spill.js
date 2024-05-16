@@ -114,13 +114,13 @@ class Bubble {
         this.distance = Math.sqrt(dx * dx + dy * dy)
     }
     draw() {
-        ctx.fillStyle = 'blue'
+       /* ctx.fillStyle = 'blue'
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
         ctx.fill()
         ctx.closePath()
-        ctx.stroke()
-        ctx.drawImage(bubbleImage, this.x, this.y, this.radius * 2.5, this.radius *2.5)
+        ctx.stroke()*/
+        ctx.drawImage(bubbleImage, this.x - 65, this.y - 65, this.radius * 2.6, this.radius *2.6)
     }
 }
 
@@ -133,6 +133,7 @@ function handleBubbles() {
     if (gameFrame % 100 == 0) {
         // Hver 50ende frame så pusher vi inn en ny bobble
         bubblesArray.push(new Bubble())
+        console.log(bubblesArray.length)
     }
     for (let i = 0; i < bubblesArray.length; i++) {
         bubblesArray[i].update()
@@ -175,6 +176,36 @@ function handleBackground(){
     if (BG.x2 < -BG.width) {BG.x2 = BG.width}
     ctx.drawImage(background, BG.x1, BG.y, BG.width, BG.height)
     ctx.drawImage(background, BG.x2, BG.y, BG.width, BG.height)
+}
+
+// Enemies
+const enemyImage = new Image()
+enemyImage.src = 'enemy1.png'
+
+class Enemy{
+    constructor(){
+        this.x = canvas.width + 200
+        this.y = Math.random() * (canvas.height - 150) + 90
+        this.radius = 60
+        this.speed = Math.random() * 2 + 2
+        this.frame = 0
+        this.frameX = 0
+        this.frameY = 0
+        this.spriteWidth = 418
+        this.spriteHeight = 397
+    }
+    draw (){
+        ctx.fillStyle = 'red'
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+        ctx.fill()
+    }
+    update(){
+        this.x -= this.speed
+        if(this.x < 0 - this.radius * 2){
+            this.x = canvas
+        }
+    }
 }
 
 // animation loop
