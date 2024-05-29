@@ -199,13 +199,22 @@ class Enemy{
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
         ctx.fill()
+        ctx.drawImage(enemyImage, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight,
+            this.spriteWidth, this.spriteHeight, this.x, this.y, this.radius * 2, this.radius * 2)
     }
     update(){
         this.x -= this.speed
         if(this.x < 0 - this.radius * 2){
-            this.x = canvas
+            this.x = canvas.width + 200
+            this.y = Math.random() * (canvas.height - 150) + 90
+            this.speed = Math.random() * 2 + 2
         }
     }
+}
+const enemy1 = new Enemy()
+function handleEnemies(){
+    enemy1.update()
+    enemy1.draw()
 }
 
 // animation loop
@@ -215,6 +224,7 @@ function animate() {
     handleBubbles()
     player.update()
     player.draw()
+    handleEnemies
     ctx.fillStyle = 'black'
     ctx.fillText('score: ' + score, 10, 50)
     gameFrame += 1
