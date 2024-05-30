@@ -246,9 +246,26 @@ class Enemy{
     }
 }
 const enemy1 = new Enemy()
-function handleEnemies(){
+/*function handleEnemies(){
     enemy1.draw()
     enemy1.update()
+}*/
+
+const enemies = [];
+const maxEnemiesOnScreen = 4;
+
+function handleEnemies() {
+    if (enemies.length < maxEnemiesOnScreen && gameFrame % 50 == 0) {
+        enemies.push(new Enemy());
+    }
+    for (let i = 0; i < enemies.length; i++) {
+        enemies[i].draw();
+        enemies[i].update();
+        if (enemies[i].x < 0 - enemies[i].radius * 2) {
+            enemies.splice(i, 1);
+            i--;
+        }
+    }
 }
 
 function handleGameOver(){
