@@ -200,7 +200,7 @@ class Enemy{
     constructor(){
         this.x = canvas.width + 200
         this.y = Math.random() * (canvas.height - 150) + 90
-        this.radius = 60
+        this.radius = 50
         this.speed = Math.random() * 2 + 2
         this.frame = 0
         this.frameX = 0
@@ -252,7 +252,7 @@ const enemy1 = new Enemy()
 }*/
 
 const enemies = [];
-const maxEnemiesOnScreen = 4;
+const maxEnemiesOnScreen = 3;
 
 function handleEnemies() {
     if (enemies.length < maxEnemiesOnScreen && gameFrame % 50 == 0) {
@@ -271,6 +271,7 @@ function handleEnemies() {
 function handleGameOver(){
     ctx.fillStyle = 'white'
     ctx.fillText('GAME OVER, du nådde scoren ' + score, 110, 250)
+    ctx.fillText('SPILL IGJEN', 300, 350)
     gameOver = true
 }
 
@@ -292,4 +293,10 @@ animate()
 
 window.addEventListener('resize', function(){
     canvasPosition = canvas.getBoundingClientRect()
+})
+
+window.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' && gameOver) {
+        location.reload()
+    }
 })
