@@ -268,11 +268,32 @@ function handleEnemies() {
     }
 }
 
+/*function handleGameOver(){
+    ctx.fillStyle = 'white'
+    ctx.fillText('GAME OVER, du nådde scoren ' + score, 110, 250)
+    ctx.fillText('SPILL IGJEN', 300, 350)
+    gameOver = true
+}*/
+
 function handleGameOver(){
     ctx.fillStyle = 'white'
     ctx.fillText('GAME OVER, du nådde scoren ' + score, 110, 250)
     ctx.fillText('SPILL IGJEN', 300, 350)
     gameOver = true
+
+    // Add an event listener to the "Play Again" button
+    const playAgainButton = document.createElement('button')
+    playAgainButton.textContent = 'Spill igjen'
+    playAgainButton.style.position = 'absolute'
+    playAgainButton.style.top = '350px'
+    playAgainButton.style.left = '300px'
+    canvas.parentNode.appendChild(playAgainButton)
+
+    playAgainButton.addEventListener('click', function(){
+        if (gameOver) {
+            location.reload()
+        }
+    })
 }
 
 // animation loop
