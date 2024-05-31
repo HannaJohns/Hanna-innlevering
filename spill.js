@@ -277,8 +277,8 @@ function handleEnemies() {
 
 function handleGameOver(){
     ctx.fillStyle = 'white'
-    ctx.fillText('GAME OVER, du nådde scoren ' + score, 110, 250)
-    ctx.fillText('SPILL IGJEN', 300, 350)
+    ctx.fillText('GAME OVER, du nådde scoren ' + score, 100, 250)
+    ctx.fillText('Press ENTER for å spille igjen', 140, 350)
     gameOver = true
 
     // Add an event listener to the "Play Again" button
