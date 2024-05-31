@@ -10,6 +10,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(undervann.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #canvas1 {
@@ -39,4 +43,5 @@ body {
     margin-right: 10px;
     font-size: 20px;
 }
+
 
