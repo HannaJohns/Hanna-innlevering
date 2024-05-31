@@ -24,7 +24,7 @@ body {
     background-color: darkslategray;
     color: white;
     margin: 20px auto;
-    display: none;
+    font-size: 37px;
 }
 
 #canvas1 {
@@ -46,6 +46,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    bottom: 200px;
+
 }
 
 .play-again-button i {

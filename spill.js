@@ -20,6 +20,7 @@ let gameOver = false
 if (!localStorage.highscore) {
     localStorage.highscore=0
 }
+highscoreEl.innerHTML = `Din highscore: ${localStorage.highscore}`
 
 
 // mouse interactivity
@@ -294,7 +295,6 @@ function handleGameOver(){
     gameOver = true
 
     highscoreEl.innerHTML = `Din highscore: ${localStorage.highscore}`
-    highscoreEl.style.display = "block"
 
     const playAgainButton = document.createElement('button')
     playAgainButton.classList.add('play-again-button')
