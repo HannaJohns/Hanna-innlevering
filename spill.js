@@ -283,10 +283,12 @@ function handleGameOver(){
 
     // Add an event listener to the "Play Again" button
     const playAgainButton = document.createElement('button')
-    playAgainButton.textContent = 'Spill igjen'
+    playAgainButton.classList.add('play-again-button')
+    playAgainButton.innerHTML = '<i class="fas fa-play"></i> Play Again'
+    /*playAgainButton.textContent = 'Spill igjen'
     playAgainButton.style.position = 'absolute'
     playAgainButton.style.top = '350px'
-    playAgainButton.style.left = '300px'
+    playAgainButton.style.left = '300px'*/
     canvas.parentNode.appendChild(playAgainButton)
 
     playAgainButton.addEventListener('click', function(){
