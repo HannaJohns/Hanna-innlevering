@@ -10,10 +10,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-image: url(undervann.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+#highscore {
+    border: 3px solid black;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: darkslategray;
+    color: white;
+    margin: 20px auto;
+    display: none;
 }
 
 #canvas1 {

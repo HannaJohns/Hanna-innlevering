@@ -8,10 +8,19 @@ canvas.width = 900
 canvas.height = 600
 
 let score = 0
+let highscoreEl = document.getElementById("highscore")
 let gameFrame = 0
 ctx.font = '50px Georgia'
 let gameSpeed = 1
 let gameOver = false
+
+/* let highscore = localStorage.getItem("hs") || 0; */
+// Når du setter ny high score:
+// localStorage.setItem("hs", score);
+if (!localStorage.highscore) {
+    localStorage.highscore=0
+}
+
 
 // mouse interactivity
 let canvasPosition = canvas.getBoundingClientRect()
@@ -166,6 +175,9 @@ function handleBubbles() {
                 bubblesArray[i].counted = true
                 bubblesArray.splice(i, 1)
                 i--
+                if (score>localStorage.highscore) {
+                    localStorage.highscore=score
+                }
             }
         }
     }
@@ -252,17 +264,17 @@ const enemy1 = new Enemy()
 }*/
 
 const enemies = [];
-const maxEnemiesOnScreen = 3;
+const maxEnemiesOnScreen = 3
 
 function handleEnemies() {
     if (enemies.length < maxEnemiesOnScreen && gameFrame % 50 == 0) {
-        enemies.push(new Enemy());
+        enemies.push(new Enemy())
     }
     for (let i = 0; i < enemies.length; i++) {
-        enemies[i].draw();
-        enemies[i].update();
+        enemies[i].draw()
+        enemies[i].update()
         if (enemies[i].x < 0 - enemies[i].radius * 2) {
-            enemies.splice(i, 1);
+            enemies.splice(i, 1)
             i--;
         }
     }
@@ -281,7 +293,9 @@ function handleGameOver(){
     ctx.fillText('Press ENTER for å spille igjen', 140, 350)
     gameOver = true
 
-    // Add an event listener to the "Play Again" button
+    highscoreEl.innerHTML = `Din highscore: ${localStorage.highscore}`
+    highscoreEl.style.display = "block"
+
     const playAgainButton = document.createElement('button')
     playAgainButton.classList.add('play-again-button')
     playAgainButton.innerHTML = '<i class="fas fa-play"></i> Play Again'
