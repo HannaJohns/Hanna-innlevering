@@ -8,14 +8,26 @@
     --blue: #4864B1;
 }
 
+body {
+    background-image: url(bilder/undervann.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
 h1 {
     text-align: center;
     background-color: var(--blue);
-    padding: 30px;
+    padding: 10px 30px;
     width: 300px;
     margin: 100px auto 20px;
     border-radius: 30px;
     color: white;
+    border: 3px solid black;
+    font-family: Oswald;
 }
 
 h3 {
@@ -26,4 +38,17 @@ h3 {
     border-radius: 20px;
     margin: 0 auto;
     padding: 10px;
+    border: 2px solid black;
+    font-family: Oswald;
+}
+
+button {
+    font-size: 40px;
+    padding: 20px;
+    width: 300px;
+    margin: 100px auto;
+    font-family: Oswald;
+    background-color: aquamarine;
+    border: 3px solid black;
+    font-weight: bolder;
 }
