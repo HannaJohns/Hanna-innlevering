@@ -141,9 +141,9 @@ class Bubble {
 }
 
 const bubblePop1 = document.createElement('audio')
-bubblePop1.src = 'boble.mp3'
+bubblePop1.src = 'lyd/boble.mp3'
 const bubblePop2 = document.createElement('audio')
-bubblePop2.src = 'bubbles-single1.wav'
+bubblePop2.src = 'lyd/bubbles-single1.wav'
 
 function handleBubbles() {
     if (gameFrame % 100 == 0) {

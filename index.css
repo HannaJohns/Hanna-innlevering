@@ -43,6 +43,7 @@ h3 {
 }
 
 button {
+    display: block;
     font-size: 40px;
     padding: 20px;
     width: 300px;
