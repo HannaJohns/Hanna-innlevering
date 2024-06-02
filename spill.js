@@ -205,7 +205,7 @@ class Enemy{
     constructor(){
         this.x = canvas.width + 200
         this.y = Math.random() * (canvas.height - 150) + 90
-        this.radius = 50
+        this.radius = 60
         this.speed = Math.random() * 2 + 2
         this.frame = 0
         this.frameX = 0

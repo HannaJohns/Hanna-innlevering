@@ -6,6 +6,7 @@
 
 :root {
     --blue: #4864B1;
+    --dark-blue: #113B90;
 }
 
 body {
@@ -49,12 +50,13 @@ button {
     width: 300px;
     margin: 100px auto;
     font-family: Oswald;
-    background-color: aquamarine;
+    background-color: var(--dark-blue);
     border: 3px solid black;
     font-weight: bolder;
+    border-radius: 20px;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
