@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+
+
 body {
     width: 100vw;
     height: 100vh;
@@ -21,7 +23,7 @@ body {
     border: 3px solid black;
     padding: 20px;
     border-radius: 15px;
-    background-color: darkslategray;
+    background-color: #4864B1;
     color: white;
     margin: 20px auto;
     font-size: 37px;
