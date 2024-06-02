@@ -10,7 +10,7 @@
 }
 
 body {
-    background-image: url(bilder/undervann.jpg);
+    background-image: url(../bilder/undervann.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
