@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #4864B1;
+}
+
+h1 {
+    text-align: center;
+    background-color: var(--blue);
+    padding: 30px;
+    width: 300px;
+    margin: 100px auto 20px;
+    border-radius: 30px;
+    color: white;
+}
+
+h3 {
+    text-align: center;
+    background-color: var(--blue);
+    color: white;
+    width: 400px;
+    border-radius: 20px;
+    margin: 0 auto;
+    padding: 10px;
+}

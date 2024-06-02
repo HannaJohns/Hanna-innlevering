@@ -14,9 +14,7 @@ ctx.font = '50px Georgia'
 let gameSpeed = 1
 let gameOver = false
 
-/* let highscore = localStorage.getItem("hs") || 0; */
-// Når du setter ny high score:
-// localStorage.setItem("hs", score);
+// highscore
 if (!localStorage.highscore) {
     localStorage.highscore=0
 }
