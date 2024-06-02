@@ -39,7 +39,7 @@ canvas.addEventListener('mouseup', function () {
     mouse.click = false
 })
 
-// player
+// Spiller
 const playerLeft = new Image()
 playerLeft.src = 'bilder/fish_swim_left.png'
 const playerRight = new Image()
@@ -89,12 +89,6 @@ class Player {
             //ctx.lineTo(mouse.x, mouse.y)
             ctx.stroke()
         }
-        /*ctx.fillStyle = 'red'
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
-        ctx.fill()
-        ctx.closePath()
-        // ctx.fillRect*/
 
         ctx.save()
         ctx.translate(this.x, this.y)
@@ -115,7 +109,7 @@ class Player {
 const player = new Player()
 
 
-// bubbles
+// Bobler
 const bubblesArray = []
 const bubbleImage = new Image()
 bubbleImage.src = 'bilder/bubble_pop_frame_01.png'
@@ -176,7 +170,7 @@ function handleBubbles() {
     }
 }
 
-//Reapeating backgrounds
+// Repeterende backgrounds
 const background = new Image()
 background.src = 'bilder/background1.png'
 
