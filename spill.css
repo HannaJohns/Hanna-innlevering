@@ -31,6 +31,23 @@ body {
     font-size: 37px;
 }
 
+#hjem {
+    color: white;
+    font-size: 40px;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
 #canvas1 {
     width: 900px;
     height: 600px;

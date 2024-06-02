@@ -52,3 +52,8 @@ button {
     border: 3px solid black;
     font-weight: bolder;
 }
+
+a {
+    text-decoration: none;
+    color: black;
+}
