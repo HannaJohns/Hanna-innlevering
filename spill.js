@@ -138,12 +138,6 @@ class Bubble {
         this.distance = Math.sqrt(dx * dx + dy * dy)
     }
     draw() {
-       /* ctx.fillStyle = 'blue'
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
-        ctx.fill()
-        ctx.closePath()
-        ctx.stroke()*/
         ctx.drawImage(bubbleImage, this.x - 65, this.y - 65, this.radius * 2.6, this.radius *2.6)
     }
 }
@@ -205,7 +199,7 @@ function handleBackground(){
     ctx.drawImage(background, BG.x2, BG.y, BG.width, BG.height)
 }
 
-// Enemies
+// Fiender
 const enemyImage = new Image()
 enemyImage.src = 'bilder/enemy1.png'
 
@@ -222,10 +216,6 @@ class Enemy{
         this.spriteHeight = 397
     }
     draw (){
-        /*ctx.fillStyle = 'red'
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
-        ctx.fill()*/
         ctx.drawImage(enemyImage, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, 
             this.spriteHeight, this.x - 60, this.y - 70, this.spriteWidth / 3, this.spriteHeight / 3)
     }
@@ -259,10 +249,6 @@ class Enemy{
     }
 }
 const enemy1 = new Enemy()
-/*function handleEnemies(){
-    enemy1.draw()
-    enemy1.update()
-}*/
 
 const enemies = [];
 const maxEnemiesOnScreen = 3
@@ -281,12 +267,6 @@ function handleEnemies() {
     }
 }
 
-/*function handleGameOver(){
-    ctx.fillStyle = 'white'
-    ctx.fillText('GAME OVER, du nådde scoren ' + score, 110, 250)
-    ctx.fillText('SPILL IGJEN', 300, 350)
-    gameOver = true
-}*/
 
 function handleGameOver(){
     ctx.fillStyle = 'white'
@@ -299,10 +279,6 @@ function handleGameOver(){
     const playAgainButton = document.createElement('button')
     playAgainButton.classList.add('play-again-button')
     playAgainButton.innerHTML = '<i class="fas fa-play"></i> Play Again'
-    /*playAgainButton.textContent = 'Spill igjen'
-    playAgainButton.style.position = 'absolute'
-    playAgainButton.style.top = '350px'
-    playAgainButton.style.left = '300px'*/
     canvas.parentNode.appendChild(playAgainButton)
 
     playAgainButton.addEventListener('click', function(){
